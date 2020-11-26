@@ -24,7 +24,7 @@ class _BytebankState extends State<Bytebank> {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'ByteBank',
+      title: 'Flutter Bank',
       theme: ThemeData(primarySwatch: Colors.indigo),
       home: HomeScreen(),
       onGenerateRoute: routes(),

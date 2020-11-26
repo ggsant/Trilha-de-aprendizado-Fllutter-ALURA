@@ -1,7 +1,9 @@
 import 'package:bytebank_tranferencias/screens/home.dart';
+import 'package:bytebank_tranferencias/screens/transfer.dart';
 import 'package:flutter/material.dart';
 
 const String HomeScreenRoute = '/';
+const String TransferScreenRoute = '/tranferRoute';
 
 RouteFactory routes() {
   return (settings) {
@@ -11,6 +13,9 @@ RouteFactory routes() {
     switch (settings.name) {
       case HomeScreenRoute:
         screen = HomeScreen();
+        break;
+      case TransferScreenRoute:
+        screen = TransferScreen();
         break;
 
       default:
