@@ -1,9 +1,11 @@
+import 'package:bytebank_tranferencias/screens/formulario_transferencia.dart';
 import 'package:bytebank_tranferencias/screens/home.dart';
-import 'package:bytebank_tranferencias/screens/transfer.dart';
+import 'package:bytebank_tranferencias/screens/sign_in.dart';
 import 'package:flutter/material.dart';
 
-const String HomeScreenRoute = '/';
-const String TransferScreenRoute = '/tranferRoute';
+const String SignInScreenRoute = '/';
+const String HomeScreenRoute = '/tranferRoute';
+const String FormsScreenRoute = '/formsRoute';
 
 RouteFactory routes() {
   return (settings) {
@@ -11,11 +13,14 @@ RouteFactory routes() {
 
     Widget screen;
     switch (settings.name) {
+      case SignInScreenRoute:
+        screen = SignInScreen();
+        break;
       case HomeScreenRoute:
         screen = HomeScreen();
         break;
-      case TransferScreenRoute:
-        screen = TransferScreen();
+      case FormsScreenRoute:
+        screen = FormularioTransferenciaScreen();
         break;
 
       default:
