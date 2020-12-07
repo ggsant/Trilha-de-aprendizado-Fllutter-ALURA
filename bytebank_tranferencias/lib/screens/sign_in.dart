@@ -3,7 +3,7 @@ import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
-import '../routes.dart';
+import 'home.dart';
 
 class SignInScreen extends StatefulWidget {
   SignInScreen({Key key}) : super(key: key);
@@ -47,7 +47,10 @@ class _SignInScreenState extends State<SignInScreen> {
                     borderRadius: BorderRadius.circular(28.0),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, HomeScreenRoute);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return HomeScreen();
+                    }));
                   },
                 ),
                 Divider(),
@@ -57,7 +60,10 @@ class _SignInScreenState extends State<SignInScreen> {
                     borderRadius: BorderRadius.circular(28.0),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, HomeScreenRoute);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return HomeScreen();
+                    }));
                   },
                 ),
                 Divider(),
@@ -67,7 +73,10 @@ class _SignInScreenState extends State<SignInScreen> {
                     borderRadius: BorderRadius.circular(28.0),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, FormsScreenRoute);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return HomeScreen();
+                    }));
                   },
                 ),
                 Divider(),
@@ -77,7 +86,10 @@ class _SignInScreenState extends State<SignInScreen> {
                     borderRadius: BorderRadius.circular(28.0),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, HomeScreenRoute);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return HomeScreen();
+                    }));
                   },
                 ),
               ],

@@ -1,6 +1,6 @@
-import 'package:bytebank_tranferencias/routes.dart';
-import 'package:bytebank_tranferencias/screens/home.dart';
 import 'package:flutter/material.dart';
+
+import 'screens/sign_in.dart';
 
 void main() {
   runApp(Bytebank());
@@ -26,8 +26,7 @@ class _BytebankState extends State<Bytebank> {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Bank',
       theme: ThemeData(primarySwatch: Colors.indigo),
-      home: HomeScreen(),
-      onGenerateRoute: routes(),
+      home: SignInScreen(),
     );
   }
 }

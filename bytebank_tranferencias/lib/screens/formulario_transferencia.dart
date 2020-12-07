@@ -1,30 +1,75 @@
-import 'package:bytebank_tranferencias/screens/widgets/button.dart';
+import 'package:bytebank_tranferencias/components/button.dart';
+import 'package:bytebank_tranferencias/components/customLineForms.dart';
+import 'package:bytebank_tranferencias/components/tituloAppBar.dart';
+import 'package:bytebank_tranferencias/model/transferencia.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/customLineForms.dart';
-import 'widgets/tituloAppBar.dart';
-
-class FormularioTransferenciaScreen extends StatefulWidget {
+class FormsTransferencia extends StatefulWidget {
   @override
-  _FormularioTransferenciaScreenState createState() =>
-      _FormularioTransferenciaScreenState();
+  _FormsTransferenciaState createState() => _FormsTransferenciaState();
 }
 
-class _FormularioTransferenciaScreenState
-    extends State<FormularioTransferenciaScreen> {
+class _FormsTransferenciaState extends State<FormsTransferencia> {
+  final TextEditingController _controllerNumConta = TextEditingController();
+  final TextEditingController _controllerValor = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: TitleAppBar(title: 'Nova transferência'),
       ),
-      body: Column(
-        children: [
-          CustomLineForms(),
-          SizedBox(height: 20),
-          Button(text: 'Transferir', onPressed: () {})
-        ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              CustomLineForms(
+                  text: 'Número da conta',
+                  hintText: 'xxxxxxxx-xx',
+                  icon: Icons.account_balance_wallet,
+                  obscureText: false,
+                  controller: _controllerNumConta),
+              SizedBox(height: 20),
+              CustomLineForms(
+                text: 'CPF',
+                hintText: 'xxxxxxxxxx-x',
+                icon: Icons.account_balance_wallet,
+                obscureText: false,
+              ),
+              SizedBox(height: 20),
+              CustomLineForms(
+                text: 'Valor',
+                hintText: 'RS 00,00',
+                icon: Icons.monetization_on,
+                obscureText: false,
+                controller: _controllerValor,
+              ),
+              SizedBox(height: 20),
+              CustomLineForms(
+                text: 'Senha',
+                hintText: 'xxxxxxxxxx',
+                icon: Icons.account_balance_wallet,
+                obscureText: false,
+              ),
+              SizedBox(height: 20),
+              Button(
+                text: 'Transferir',
+                onPressed: () => _criaTransferencia(context),
+              )
+            ],
+          ),
+        ),
       ),
     );
+  }
+
+  void _criaTransferencia(BuildContext context) {
+    final int numeroConta = int.tryParse(_controllerNumConta.text);
+    final double valor = double.tryParse(_controllerValor.text);
+    if (numeroConta != null && valor != null) {
+      final transferenciaCriada = Transferencia(valor, numeroConta);
+      debugPrint('$transferenciaCriada');
+      Navigator.pop(context, transferenciaCriada);
+    }
   }
 }
