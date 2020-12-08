@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bank/screens/sign_in.dart';
 
 void main() {
-  runApp(OneWidgetPerDay());
+  runApp(FlutterBank());
 }
 
-class OneWidgetPerDay extends StatelessWidget {
-  const OneWidgetPerDay({Key key}) : super(key: key);
+class FlutterBank extends StatelessWidget {
+  const FlutterBank({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +19,9 @@ class OneWidgetPerDay extends StatelessWidget {
         );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'OneWidgetPerDay',
+      title: 'FlutterBank',
       color: Color.fromRGBO(231, 72, 154, 1),
       home: SignInScreen(),
-      // onGenerateRoute: routes(),
     );
   }
 }

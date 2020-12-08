@@ -52,16 +52,6 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 Divider(),
                 SignInButton(
-                  Buttons.Google,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(28.0),
-                  ),
-                  onPressed: () {
-                    Navigator.push(context, pushNewRoutes(MenuScreenRoute));
-                  },
-                ),
-                Divider(),
-                SignInButton(
                   Buttons.FacebookNew,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(28.0),

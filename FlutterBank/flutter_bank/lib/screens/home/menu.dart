@@ -6,11 +6,12 @@ import 'package:circular_reveal_animation/circular_reveal_animation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bank/resources/routes.dart';
 
-import 'contents/pageThree.dart';
-import 'likes/pageTwo.dart';
-import 'news/pageOne.dart';
+import 'cards/pageTwo.dart';
+import 'notifications/pageOne.dart';
 import 'settings/pageFour.dart';
+import 'transfer/pageThree.dart';
 
 class MenuScreen extends StatefulWidget {
   MenuScreen({Key key, this.title}) : super(key: key);
@@ -31,9 +32,9 @@ class _MenuScreenState extends State<MenuScreen>
   CurvedAnimation curve;
 
   final iconList = <IconData>[
-    Icons.fiber_new,
-    Icons.favorite,
-    Icons.book,
+    Icons.notifications,
+    Icons.credit_card,
+    Icons.monetization_on,
     Icons.settings,
   ];
 
@@ -85,14 +86,19 @@ class _MenuScreenState extends State<MenuScreen>
           widget.title,
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: HexColor('#373A36'),
+        centerTitle: true,
+        backgroundColor: HexColor('#536DFE'),
+        iconTheme: IconThemeData(
+          color: Color.fromRGBO(83, 109, 254, 1),
+        ),
       ),
       body: NavigationScreen(widgetList[_bottomNavIndex]),
       floatingActionButton: ScaleTransition(
         scale: animation,
         child: FloatingActionButton(
+          heroTag: "btn2",
           elevation: 8,
-          backgroundColor: HexColor('#E7489A'),
+          backgroundColor: HexColor('#536DFE'),
           child: Icon(
             Icons.home,
             color: Colors.white,
@@ -100,6 +106,7 @@ class _MenuScreenState extends State<MenuScreen>
           onPressed: () {
             _animationController.reset();
             _animationController.forward();
+            Navigator.push(context, pushNewRoutes(MenuScreenRoute));
           },
         ),
       ),
@@ -107,7 +114,7 @@ class _MenuScreenState extends State<MenuScreen>
       bottomNavigationBar: AnimatedBottomNavigationBar.builder(
         itemCount: iconList.length,
         tabBuilder: (int index, bool isActive) {
-          final color = isActive ? HexColor('#E7489A') : Colors.white;
+          final color = isActive ? Colors.indigo[800] : Colors.white;
           return Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -121,9 +128,9 @@ class _MenuScreenState extends State<MenuScreen>
             ],
           );
         },
-        backgroundColor: HexColor('#373A36'),
+        backgroundColor: HexColor('#536DFE'),
         activeIndex: _bottomNavIndex,
-        splashColor: HexColor('#E7489A'),
+        splashColor: HexColor('#536DFE'),
         notchAndCornersAnimation: animation,
         splashSpeedInMilliseconds: 300,
         notchSmoothness: NotchSmoothness.defaultEdge,

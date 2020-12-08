@@ -11,9 +11,9 @@ class TitleFont extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.shadowsIntoLight(
+      style: GoogleFonts.openSans(
         textStyle: TextStyle(
-          color: Color.fromRGBO(231, 72, 154, 1),
+          color: Color.fromRGBO(83, 109, 254, 1),
           fontWeight: FontWeight.w700,
           fontSize: fontSize,
         ),

@@ -18,7 +18,7 @@ MaterialPageRoute pushNewRoutes(String routeName) {
       screen = (BuildContext context) => SignInScreen();
       break;
     case MenuScreenRoute:
-      screen = (BuildContext context) => MenuScreen(title: 'menu');
+      screen = (BuildContext context) => MenuScreen(title: 'Flutter Bank');
       break;
 
     case FormsTransferenciaRoute:

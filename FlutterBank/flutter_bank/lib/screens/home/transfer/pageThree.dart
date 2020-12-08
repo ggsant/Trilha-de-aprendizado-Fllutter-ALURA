@@ -1,33 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/components/listaDeTransferencias.dart';
+import 'package:flutter_bank/components/title.dart';
 import 'package:flutter_bank/model/transferencia.dart';
 
-import 'formulario_transferencia.dart';
+import '../../formulario_transferencia.dart';
 
-class TransferenciaScreen extends StatefulWidget {
-  TransferenciaScreen({Key key}) : super(key: key);
+class PageThreeMenu extends StatefulWidget {
+  PageThreeMenu({Key key}) : super(key: key);
   final List<Transferencia> listaTransferencias = List();
 
   @override
-  _TransferenciaScreenState createState() => _TransferenciaScreenState();
+  _PageThreeMenuState createState() => _PageThreeMenuState();
 }
 
-class _TransferenciaScreenState extends State<TransferenciaScreen> {
+class _PageThreeMenuState extends State<PageThreeMenu> {
   final List<Transferencia> listaTransferencias = List();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.indigo[800],
-        body: ListView.builder(
-            itemCount: widget.listaTransferencias.length,
-            itemBuilder: (context, index) {
-              final transferencia = widget.listaTransferencias[index];
-              return CustomCard(transferencia);
-            }),
+        body: widget.listaTransferencias.isEmpty
+            ? Center(
+                child: TitleFont(
+                  text: 'Faça uma nova transferência!',
+                  fontSize: 30,
+                ),
+              )
+            : ListView.builder(
+                itemCount: widget.listaTransferencias.length,
+                itemBuilder: (context, index) {
+                  final transferencia = widget.listaTransferencias[index];
+                  return CustomCard(transferencia);
+                }),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Color.fromRGBO(83, 109, 254, 1),
+          heroTag: "btn1",
           child: Icon(Icons.add),
           onPressed: () {
             final Future<Transferencia> future =
