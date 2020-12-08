@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/screens/formulario_transferencia.dart';
-import 'package:flutter_bank/screens/home/home.dart';
+import 'package:flutter_bank/screens/home/menu.dart';
 import 'package:flutter_bank/screens/sign_in.dart';
 import 'package:flutter_bank/screens/transferencia.dart';
 
@@ -18,7 +18,7 @@ MaterialPageRoute pushNewRoutes(String routeName) {
       screen = (BuildContext context) => SignInScreen();
       break;
     case MenuScreenRoute:
-      screen = (BuildContext context) => MenuScreen();
+      screen = (BuildContext context) => MenuScreen(title: 'menu');
       break;
 
     case FormsTransferenciaRoute:
