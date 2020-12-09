@@ -17,6 +17,7 @@ class _FormsTransferenciaState extends State<FormsTransferencia> {
     return Scaffold(
       appBar: AppBar(
         title: TitleAppBar(title: 'Nova transferência'),
+        backgroundColor: Color.fromRGBO(83, 109, 254, 1),
       ),
       body: SingleChildScrollView(
         child: Padding(

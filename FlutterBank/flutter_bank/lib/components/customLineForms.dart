@@ -14,7 +14,10 @@ class CustomLineForms extends StatelessWidget {
       controller: controller,
       obscureText: obscureText,
       decoration: InputDecoration(
-        icon: Icon(icon),
+        icon: Icon(
+          icon,
+          color: Color.fromRGBO(83, 109, 254, 1),
+        ),
         labelText: text,
         hintText: hintText,
       ),
