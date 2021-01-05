@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-
+import 'package:persistencia_internacionalizacao/model/contact.dart';
+import 'package:persistencia_internacionalizacao/database/database.dart';
 import 'screens/sign_in.dart';
 
 void main() {
   runApp(Bytebank());
+  save(Contact(1, 'Gabriela', 1000)).then((id) {
+    findAll().then((contacts) => debugPrint(contacts.toString()));
+  });
 }
 
 class Bytebank extends StatefulWidget {

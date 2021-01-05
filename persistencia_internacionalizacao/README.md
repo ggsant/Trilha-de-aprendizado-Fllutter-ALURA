@@ -1,16 +1,9 @@
-# persistencia_internacionalizacao
+# Persistencia de dados 
 
-A new Flutter project.
+Persistência
+* Persistir dados com SQLite - O primeiro, intitulado "Persist data with SQLite", trata da persistência a partir do SQLite, uma estrutura de banco de dados que serve para armazenar dados estruturados, permitindo a realização de pesquisas e consultas que devolvem informações persistidas. Este tipo de solução de software é comum em diversos cenários, como aplicações web, mobile, desktop entre outras, pois permite adicionar dados com SQL, recuperá-los e criar filtros para gerenciamento de dados de larga escala, ou seja, muitas informações armazenadas em tabelas com diversas linhas.
 
-## Getting Started
+* Ler e escrever arquivos - O tópico seguinte é "Read and write files", que aborda a leitura e escrita de arquivos. Utilizamos esta estrutura quando precisamos, como o próprio nome diz, registrar informações em algum tipo de arquivo. Por exemplo, se quiséssemos fazer a gravação em um PDF ou se estivéssemos fazendo um download para o armazenamento local (local storage) do dispositivo, poderíamos usar esta estrutura de leitura e escrita. São casos em que, geralmente, não temos dados estruturados, mas sim diversas informações obtidas por download ou queremos gerar uma resposta visual, por exemplo. Em nosso caso, queremos algo mais estruturado, logo, não faz tanto sentido manter esta abordagem.
 
-This project is a starting point for a Flutter application.
+* Armazene dados de valor-chave em disco - A última opção, "Store key-value data on disk", diz respeito ao armazenamento de chave-valor dentro do disco. Basicamente, é uma estrutura na qual utilizamos uma espécie de mapa para os dados, por exemplo armazenando o ID do usuário em uma chave que representa essa informação. A descrição dessa abordagem na documentação inclusive explica que ela deve ser usada quando queremos salvar informações pequenas e relacionadas a dados primitivos - ou seja, não conseguiremos salvar um objeto inteiro, como um contato, nesse tipo de estrutura.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
