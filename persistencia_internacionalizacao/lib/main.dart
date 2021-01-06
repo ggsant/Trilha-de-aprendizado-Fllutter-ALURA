@@ -5,7 +5,7 @@ import 'screens/sign_in.dart';
 
 void main() {
   runApp(Bytebank());
-  save(Contact(1, 'Gabriela', 1000)).then((id) {
+  save(Contact(0, 'Gabriela', 1000)).then((id) {
     findAll().then((contacts) => debugPrint(contacts.toString()));
   });
 }

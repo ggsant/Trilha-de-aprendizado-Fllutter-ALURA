@@ -27,6 +27,7 @@ Future<Database> createDatabase() {
         );
       },
       version: 1,
+      onDowngrade: onDatabaseDowngradeDelete,
     );
   });
 }
