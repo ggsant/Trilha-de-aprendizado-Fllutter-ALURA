@@ -70,8 +70,6 @@ class _FormsTransferenciaState extends State<FormsTransferencia> {
                   final int cpfNumber = int.tryParse(_controllerCpf.text);
                   final Transferencia newTransf =
                       Transferencia(0, value, cpfNumber, accountNumber);
-                  print(
-                      'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa $newTransf');
                   _dao.save(newTransf).then((id) => Navigator.pop(context));
                 },
               )
@@ -81,20 +79,4 @@ class _FormsTransferenciaState extends State<FormsTransferencia> {
       ),
     );
   }
-
-  // void _criaTransferencia(BuildContext context) {
-  //   final int accountNumber = int.tryParse(_controllerNumConta.text);
-  //   final double value = double.tryParse(_controllerValor.text);
-  //   final int cpfNumber = int.tryParse(_controllerValor.text);
-
-  //   if (accountNumber != null && value != null) {
-  //     final newTransf = Transferencia(
-  //       0,
-  //       value,
-  //       cpfNumber,
-  //       accountNumber,
-  //     );
-  //     _dao.save(newTransf).then((id) => Navigator.pop(context));
-  //   }
-  // }
 }

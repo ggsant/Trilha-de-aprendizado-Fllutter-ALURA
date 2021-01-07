@@ -7,7 +7,7 @@ class TransfDao {
   static const String tableSql = 'CREATE TABLE $_tableName('
       '$_id INTEGER PRIMARY KEY, '
       '$_cpfNumber INTEGER, '
-      '$_accountNumber INTEGER, $_value INTEGER)';
+      '$_accountNumber INTEGER, $_value DOUBLE)';
 
   static const String _id = 'id';
   static const String _value = 'value';
@@ -18,7 +18,6 @@ class TransfDao {
   Future<int> save(Transferencia transf) async {
     final Database db = await getDatabase();
     Map<String, dynamic> transfMap = _toMap(transf);
-    print('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb $transfMap');
     return db.insert(_tableName, transfMap);
   }
 

@@ -36,29 +36,23 @@ class _PageThreeMenuState extends State<PageThreeMenu> {
                 break;
               case ConnectionState.done:
                 final List<Transferencia> transf = snapshot.data;
-                return ListView.builder(
-                  itemBuilder: (context, index) {
-                    final Transferencia transferencia = transf[index];
-                    return CustomCard(transferencia);
-                  },
-                  itemCount: transf.length,
-                );
-                // if (transf != null) {
-                //   return ListView.builder(
-                //     itemBuilder: (context, index) {
-                //       final Transferencia transferencia = transf[index];
-                //       return CustomCard(transferencia);
-                //     },
-                //     itemCount: transf.length,
-                //   );
-                // } else {
-                //   return Center(
-                //     child: TitleFont(
-                //       text: 'Faça uma nova transferência!',
-                //       fontSize: 30,
-                //     ),
-                //   );
-                // }
+
+                if (transf != null) {
+                  return ListView.builder(
+                    itemBuilder: (context, index) {
+                      final Transferencia transferencia = transf[index];
+                      return CustomCard(transferencia);
+                    },
+                    itemCount: transf.length,
+                  );
+                } else {
+                  return Center(
+                    child: TitleFont(
+                      text: 'Faça uma nova transferência!',
+                      fontSize: 30,
+                    ),
+                  );
+                }
 
                 break;
             }
@@ -80,33 +74,6 @@ class _PageThreeMenuState extends State<PageThreeMenu> {
               });
             });
           },
-          // onPressed: () {
-          //   Navigator.of(context).push(
-          //     MaterialPageRoute(
-          //       builder: (context) => FormsTransferencia(),
-          //     ),
-          //   );
-          // },
-          // onPressed: () {
-          //   final Future<Transferencia> future =
-          //       Navigator.push(context, MaterialPageRoute(builder: (context) {
-          //     return FormsTransferencia();
-          //   }));
-          //   future.then(
-          //     (transferenciaRecebida) {
-          //       Future.delayed(
-          //         Duration(seconds: 1),
-          //         () {
-          //           if (transferenciaRecebida != null) {
-          //             setState(() {
-          //               transferenciaRecebida.add(transferenciaRecebida);
-          //             });
-          //           }
-          //         },
-          //       );
-          //     },
-          //   );
-          // },
         ),
       ),
     );
