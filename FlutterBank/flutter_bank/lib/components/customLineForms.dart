@@ -21,6 +21,7 @@ class CustomLineForms extends StatelessWidget {
         labelText: text,
         hintText: hintText,
       ),
+      keyboardType: TextInputType.number,
     );
   }
 }

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bank/screens/formulario_transferencia.dart';
 import 'package:flutter_bank/screens/home/menu.dart';
 import 'package:flutter_bank/screens/sign_in.dart';
-import 'package:flutter_bank/screens/transferencia.dart';
 
 const String SignInScreenRoute = '/';
 const String MenuScreenRoute = '/menuScreenRoute';
@@ -23,10 +22,6 @@ MaterialPageRoute pushNewRoutes(String routeName) {
 
     case FormsTransferenciaRoute:
       screen = (BuildContext context) => FormsTransferencia();
-      break;
-
-    case TransferenciaScreenRoute:
-      screen = (BuildContext context) => TransferenciaScreen();
       break;
 
     default:
