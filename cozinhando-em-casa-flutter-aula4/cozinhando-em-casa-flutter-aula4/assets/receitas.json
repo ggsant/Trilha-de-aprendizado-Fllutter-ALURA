@@ -1,0 +1,44 @@
+
+    [
+        {
+            "titulo": "Ratatouille",
+            "foto": "assets/images/ratatouille.jpg",
+            "porcoes": "10",
+            "tempo_preparo": "1h20min",
+            "ingredientes": "1 abobrinha grande em rodelas finas (0,5 cm); 1 berinjela em rodelas finas (0,5 cm); 4 colheres (sopa) de azeite; meia cebola picada; 2 dentes de alho picados; 5 tomates sem pele e sem sementes, picados; 2 colheres (sopa) de tomilho; 1 ramo de alecrim; 1 pitada de pimenta-do-reino; 2 colheres (sopa) de manjericão; 1 pimentão amarelo em rodelas finas (0,5 cm); 1 pimentão vermelho em rodelas finas (0,5 cm); meia cebola em rodelas finas; sal",
+            "modo_preparo": "Em um recipiente, coloque a abobrinha e a berinjela e bastante sal por cima. Espalhe bem e deixe descansar por cerca de 30 minutos. Escorra toda a água que formar e seque bem cada rodela com um papel-toalha. Reserve. Em uma frigideira, aqueça 2 colheres (sopa) de azeite e grelhe a abobrinha e a berinjela reservadas (colocando poucas rodelas por vez na frigideira, com cuidado para não amolecerem demais). Reserve. Na mesma frigideira, aqueça 1 colher (sopa) de azeite e refogue a cebola e o alho. Adicione os tomates picados, o tomilho, o alecrim, a pimenta-do-reino e o manjericão. Cozinhe em fogo baixo até que o tomate comece a se desmanchar. Em um recipiente refratário, cubra o fundo com o refogado dos tomates reservados e arrume as fatias de legumes, intercalando fatias de abobrinha, pimentões, cebola e berinjela (arrume os vegetais na vertical). Regue os legumes reservados com azeite. Cubra com papel-alumínio e leve ao forno médio-alto (200°C), preaquecido, por cerca de 30 minutos. Sirva."
+        },
+        {
+            "titulo": "Mousse de Chocolate",
+            "foto": "assets/images/mousse-de-chocolate.jpg",
+            "porcoes": "8",
+            "tempo_preparo": "30min",
+            "ingredientes": "3 ovos; 200 g de chocolate meio amargo; 2 colheres (sopa) de açúcar; 1 lata de creme de leite",
+            "modo_preparo": "Bata as gemas até dobrarem de volume. Junte o açúcar e continue batendo. Derreta o chocolate e acrescente à gemada. Junte o creme de leite, batendo sempre. Por fim, acrescente as claras em neve (bem batidas mesmo), misturando rapidamente na batedeira. Leve à geladeira e sirva-se, deliciando o melhor mousse e mais simples de fazer!"
+        },
+        {
+            "titulo": "Pão Caseiro",
+            "foto": "assets/images/pao.jpg",
+            "porcoes": "1",
+            "tempo_preparo": "3h ~ 4h",
+            "ingredientes": "500 g de farinha de trigo; 330 g de água morna; 10 g de sal; 15 g de fermento biológico fresco ou 5 g de fermento biológico seco",
+            "modo_preparo": "Coloque a água morna em uma tigela grande. Misture a farinha e o sal em uma tigela menor. Acrescente o fermento na tigela com água ou diretamente na farinha (veja o método correto de misturar o fermento de acordo com o tipo que você utiliza). Acrescente a mistura de farinha e sal na tigela com água. Misture tudo com uma colher de pau e depois com a mão até formar uma massa uniforme. Tente aproveitar toda farinha que ficar grudada nas laterais. Deixe descansar por 10 minutos (ou até 30 minutos se você puder esperar). Sove a massa na própria tigela ou em uma bancada levemente enfarinhada. Cubra com a outra tigela (ou com um pano levemente umedecido) e deixe crescer por cerca de 1 hora até dobrar de tamanho (se estiver calor é mais rápido). Despeje a massa em uma bancada, pressione-a para liberar todo ar que se formou internamente. Modele em formato de Batard e coloque em uma assadeira ou em uma forma de bolo inglês untada com um pouco de manteiga ou azeite. Cubra com um pano umedecido e espere crescer por 30 minutos. Cerca de 20 ou 30 minutos antes de assar, coloque outra assadeira na parte de baixo do forno e preaqueça-o em 250ºC. Faça um talho longitudinal de ponta a ponta na massa com cerca de 1 cm de profundidade (utilize um estilete ou uma lâmina de barbear). Despeje 50 ml de água na assadeira de baixo pré-aquecida e coloque a massa no forno em outra assadeira na parte de cima. Diminua a temperatura para 210ºC. Espere assar por 30 a 40 minutos até dourar bem. Não deixe muito mais tempo do que isso. Caso o pão já esteja assado por dentro, mas a casca ainda não, coloque na função gratinar por 5 minutos. Para saber se o pão está assado, retire-o do forno e bata no fundo. Deve soar oco como bater na madeira. Você pode voltá-lo para o forno caso não esteja assado. Quando estiver assado, retire do forno e coloque em uma grade para esfriar por 10 minutos."
+        },
+        {
+            "titulo": "Brigadeiro",
+            "foto": "assets/images/brigadeiro.jpg",
+            "porcoes": "30",
+            "tempo_preparo": "25min",
+            "ingredientes": "1 caixa de leite condensado; 1 colher (sopa) de margarina sem sal; 7 colheres (sopa) de achocolatado ou 4 colheres (sopa) de chocolate em pó; chocolate granulado",
+            "modo_preparo": "Em uma panela funda, acrescente o leite condensado, a margarina e o chocolate em pó. Cozinhe em fogo médio e mexa até que o brigadeiro comece a desgrudar da panela. Deixe esfriar e faça pequenas bolas com a mão passando a massa no chocolate granulado."
+        },
+        {
+            "titulo": "Yakisoba",
+            "foto": "assets/images/yakisoba.jpg",
+            "porcoes": "4",
+            "tempo_preparo": "40min",
+            "ingredientes": "300 g de macarrão para yakisoba; 1 cebola grande picada em pedaços médios; 1 colher (sopa) de óleo; 1/2 maço pequeno de brócolis; 1/2 maço pequeno de couve-flor; 250 ml de molho para yakissoba; 6 colheres (sopa) de molho shoyu; 400 g de tirinhas de carne (mignon, patinho ou alcatra); 100 g de champignon; 1 cenoura cortada em diagonal; 4 folhas de acelga cortadas em diagonal",
+            "modo_preparo": "Cozinhe o macarrão em água salgada e reserve. Em uma panela grande, coloque o óleo e refogue a cebola. Acrescente a carne, o brócolis, a couve-flor, a cenoura, a acelga, o champignon e tempere com shoyu. Despeje o molho para yakisoba e deixe cozinhar até os legumes ficarem cozidos em ponto al dente. Adicione o macarrão, misture bem e sirva logo a seguir."
+        }
+    ]
+
