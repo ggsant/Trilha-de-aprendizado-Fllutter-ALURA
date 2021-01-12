@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bank/model/transferencia.dart';
 
 class CustomCard extends StatelessWidget {
+  CustomCard(this.transferencia);
   final Transferencia transferencia;
 
-  CustomCard(this.transferencia);
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -13,8 +13,8 @@ class CustomCard extends StatelessWidget {
         Icons.monetization_on,
         color: Colors.green[200],
       ),
-      title: Text('RS ${transferencia.value.toString()}'),
-      subtitle: Text('${transferencia.accountNumber.toString()}'),
+      title: Text('RS ${transferencia.toStringValor()}'),
+      subtitle: Text('${transferencia.toStringConta()}'),
     ));
   }
 }

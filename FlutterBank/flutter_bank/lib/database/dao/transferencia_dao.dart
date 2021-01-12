@@ -23,9 +23,8 @@ class TransfDao {
 
   Map<String, dynamic> _toMap(Transferencia transf) {
     final Map<String, dynamic> transfMap = Map();
-    transfMap[_value] = transf.value;
-    transfMap[_cpfNumber] = transf.cpfNumber;
-    transfMap[_accountNumber] = transf.accountNumber;
+    transfMap[_value] = transf.valor;
+    transfMap[_accountNumber] = transf.numeroConta;
 
     return transfMap;
   }
@@ -41,9 +40,8 @@ class TransfDao {
     final List<Transferencia> transfs = List();
     for (Map<String, dynamic> row in result) {
       final Transferencia transf = Transferencia(
-        row[_id],
+        // row[_id],
         row[_value],
-        row[_cpfNumber],
         row[_accountNumber],
       );
       transfs.add(transf);

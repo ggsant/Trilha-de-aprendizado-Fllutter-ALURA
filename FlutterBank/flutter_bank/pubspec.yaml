@@ -38,6 +38,7 @@ dependencies:
   flutter_signin_button: ^1.1.0
   settings_ui: ^0.4.0
   awesome_card: ^1.1.0
+  provider: ^4.3.2+3
   
 
 

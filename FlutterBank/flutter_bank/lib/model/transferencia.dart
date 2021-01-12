@@ -1,17 +1,22 @@
 class Transferencia {
-  final int id;
-  final double value;
-  final int cpfNumber;
-  final int accountNumber;
+  final double valor;
+  final int numeroConta;
 
   Transferencia(
-    this.id,
-    this.value,
-    this.cpfNumber,
-    this.accountNumber,
+    this.valor,
+    this.numeroConta,
   );
+
+  String toStringValor() {
+    return 'R\$ $valor';
+  }
+
+  String toStringConta() {
+    return 'Conta: $numeroConta';
+  }
+
   @override
   String toString() {
-    return 'Transferencia: id: $id, valor: $value,  cpfNumber: $cpfNumber, numConta: $accountNumber, ';
+    return 'Transferencia{valor: $valor, numeroConta: $numeroConta}';
   }
 }

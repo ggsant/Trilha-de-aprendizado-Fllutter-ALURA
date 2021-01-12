@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/screens/sign_in.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(FlutterBank());
-}
+import 'model/saldo.dart';
+import 'model/transferencias.dart';
+
+void main() => runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (context) => Saldo(0),
+          ),
+          ChangeNotifierProvider(
+            create: (context) => Transferencias(),
+          )
+        ],
+        child: FlutterBank(),
+      ),
+    );
 
 class FlutterBank extends StatelessWidget {
   const FlutterBank({Key key}) : super(key: key);
