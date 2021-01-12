@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bank/components/buttonsDashboard.dart';
 import 'package:flutter_bank/model/transferencias.dart';
 import 'package:flutter_bank/screens/home/notifications/item.dart';
 import 'package:flutter_bank/screens/home/notifications/listaMovimentacoes.dart';
@@ -12,10 +13,11 @@ class UltimasTransferencias extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+        Divider(),
         Text(
           _titulo,
           style: TextStyle(
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.normal,
             fontSize: 20,
           ),
         ),
@@ -34,6 +36,7 @@ class UltimasTransferencias extends StatelessWidget {
 
             if (_quantidade == 0) {
               return Card(
+                elevation: 5,
                 margin: EdgeInsets.all(40),
                 child: Padding(
                   padding: EdgeInsets.all(10),
@@ -59,8 +62,8 @@ class UltimasTransferencias extends StatelessWidget {
             );
           },
         ),
-        FlatButton(
-          color: Colors.green,
+        ButtonDashboard(
+          text: _conteudoBotao,
           onPressed: () {
             Navigator.push(
               context,
@@ -69,7 +72,6 @@ class UltimasTransferencias extends StatelessWidget {
               }),
             );
           },
-          child: Text(_conteudoBotao),
         )
       ],
     );

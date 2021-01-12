@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bank/components/buttonsDashboard.dart';
 import 'package:flutter_bank/components/saldoCard.dart';
 import 'package:flutter_bank/components/title.dart';
 import 'package:flutter_bank/database/dao/transferencia_dao.dart';
@@ -43,15 +44,18 @@ class _PageThreeMenuState extends State<PageThreeMenu> {
                 if (transf != null) {
                   return ListView(
                     children: <Widget>[
-                      Align(
-                        alignment: Alignment.topCenter,
-                        child: SaldoCard(),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.0),
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: SaldoCard(),
+                        ),
                       ),
                       ButtonBar(
                         alignment: MainAxisAlignment.center,
                         children: [
-                          RaisedButton(
-                            child: Text('Receber depósito'),
+                          ButtonDashboard(
+                            text: 'Receber depósito',
                             onPressed: () {
                               Navigator.push(context,
                                   MaterialPageRoute(builder: (context) {
@@ -59,8 +63,8 @@ class _PageThreeMenuState extends State<PageThreeMenu> {
                               }));
                             },
                           ),
-                          RaisedButton(
-                            child: Text('Fazer transferencia'),
+                          ButtonDashboard(
+                            text: 'Fazer transferência',
                             onPressed: () {
                               Navigator.push(context,
                                   MaterialPageRoute(builder: (context) {
@@ -70,25 +74,21 @@ class _PageThreeMenuState extends State<PageThreeMenu> {
                           ),
                         ],
                       ),
-                      RaisedButton(
-                        child: Text('Transferencia'),
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return ListaMovimentacoes(); //
-                          }));
-                        },
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 15.0),
+                        child: ButtonDashboard(
+                          text: 'Extrato bancário',
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return ListaMovimentacoes(); //
+                            }));
+                          },
+                        ),
                       ),
                       UltimasTransferencias()
                     ],
                   );
-                  // return ListView.builder(
-                  //   itemBuilder: (context, index) {
-                  //     final Transferencia transferencia = transf[index];
-                  //     return CustomCard(transferencia);
-                  //   },
-                  //   itemCount: transf.length,
-                  // );
                 } else {
                   return Center(
                     child: TitleFont(
@@ -97,29 +97,29 @@ class _PageThreeMenuState extends State<PageThreeMenu> {
                     ),
                   );
                 }
-
                 break;
             }
             return Text('Error');
-          },
-        ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Color.fromRGBO(83, 109, 254, 1),
-          heroTag: "btn1",
-          child: Icon(Icons.add),
-          onPressed: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(
-              builder: (context) => FormsTransferencia(),
-            ))
-                .then((value) {
-              setState(() {
-                widget.createState();
-              });
-            });
           },
         ),
       ),
     );
   }
 }
+
+// floatingActionButton: FloatingActionButton(
+//   backgroundColor: Color.fromRGBO(83, 109, 254, 1),
+//   heroTag: "btn1",
+//   child: Icon(Icons.add),
+//   onPressed: () {
+//     Navigator.of(context)
+//         .push(MaterialPageRoute(
+//       builder: (context) => FormsTransferencia(),
+//     ))
+//         .then((value) {
+//       setState(() {
+//         widget.createState();
+//       });
+//     });
+//   },
+// ),

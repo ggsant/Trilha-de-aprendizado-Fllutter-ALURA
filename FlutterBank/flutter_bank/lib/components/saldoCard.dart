@@ -8,20 +8,33 @@ class SaldoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Padding(
-        padding: EdgeInsets.all(20),
-        child: Consumer<Saldo>(
-          builder: (context, valor, child) {
-            return Text(
-              valor.toString(),
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-              ),
-            );
-          },
-        ),
+      elevation: 5,
+      child: Consumer<Saldo>(
+        builder: (context, valor, child) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 100.0),
+            child: Column(
+              children: [
+                Text(
+                  'Saldo atual',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+                Text(
+                  valor.toString(),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

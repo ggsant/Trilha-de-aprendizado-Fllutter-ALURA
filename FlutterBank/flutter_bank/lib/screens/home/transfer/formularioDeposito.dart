@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bank/components/buttonsDashboard.dart';
 import 'package:flutter_bank/components/editor.dart';
+import 'package:flutter_bank/components/saldoCard.dart';
 import 'package:flutter_bank/model/saldo.dart';
 import 'package:provider/provider.dart';
 
@@ -19,16 +21,29 @@ class FormularioDeposito extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Column(
-            children: <Widget>[
-              Editor(
-                dica: _dicaCampoValor,
-                controlador: _controladorCampoValor,
-                rotulo: _rotuloCampoValor,
-                icone: Icons.monetization_on,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: 8.0),
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: SaldoCard(),
+                ),
               ),
-              RaisedButton(
-                child: Text(_textoBotaoConfirmar),
-                onPressed: () => _criaDeposito(context),
+              Card(
+                child: Column(
+                  children: <Widget>[
+                    Editor(
+                      dica: _dicaCampoValor,
+                      controlador: _controladorCampoValor,
+                      rotulo: _rotuloCampoValor,
+                      icone: Icons.monetization_on,
+                    ),
+                    ButtonDashboard(
+                      text: _textoBotaoConfirmar,
+                      onPressed: () => _criaDeposito(context),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
