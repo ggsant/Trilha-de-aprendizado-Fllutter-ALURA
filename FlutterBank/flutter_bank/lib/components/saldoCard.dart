@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/model/saldo.dart';
+import 'package:flutter_bank/resources/strings.dart';
 import 'package:provider/provider.dart';
 
 class SaldoCard extends StatelessWidget {
@@ -12,11 +13,11 @@ class SaldoCard extends StatelessWidget {
       child: Consumer<Saldo>(
         builder: (context, valor, child) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 100.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
                 Text(
-                  'Saldo atual',
+                  Strings.currentBalance,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20,

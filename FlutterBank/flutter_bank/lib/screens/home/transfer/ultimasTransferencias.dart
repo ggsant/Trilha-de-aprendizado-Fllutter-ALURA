@@ -56,8 +56,9 @@ class UltimasTransferencias extends StatelessWidget {
                 final _transferencia = _ultimasTransferencias[indice];
                 final _valor = _transferencia.toStringValor();
                 final _conta = _transferencia.toStringConta();
+                final _nome = _transferencia.toStringNome();
 
-                return Item.transferencia(_valor, _conta);
+                return Item.transferencia(_valor, _conta, _nome);
               },
             );
           },

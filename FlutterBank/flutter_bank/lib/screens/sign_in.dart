@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/resources/routes.dart';
+import 'package:flutter_bank/resources/strings.dart';
+import 'package:flutter_bank/resources/theme_colors.dart';
 import 'package:flutter_signin_button/button_builder.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
@@ -17,21 +19,21 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: Colors.indigo[800],
+          backgroundColor: ThemeColors.indigo800Color,
           body: Center(
             child: Column(
               children: [
                 SizedBox(height: 100),
                 Image.asset(
-                  'assets/logo2.png',
+                  Strings.imageLogo,
                   height: 150,
                   width: 150,
                 ),
                 Text(
-                  'Flutter Bank',
+                  Strings.title,
                   style: GoogleFonts.kaushanScript(
                     textStyle: TextStyle(
-                      color: Colors.green[200],
+                      color: ThemeColors.green200Color,
                       fontSize: 60,
                     ),
                   ),
@@ -39,15 +41,15 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 SizedBox(height: 30),
                 SignInButtonBuilder(
-                  text: 'Get going with Email',
+                  text: Strings.signInWithEmail,
                   icon: Icons.email,
                   width: 220.0,
-                  backgroundColor: Colors.blueGrey[700],
+                  backgroundColor: ThemeColors.blueGrey700Color,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(28.0),
                   ),
                   onPressed: () {
-                    Navigator.push(context, pushNewRoutes(MenuScreenRoute));
+                    _signIn(context);
                   },
                 ),
                 Divider(),
@@ -57,7 +59,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     borderRadius: BorderRadius.circular(28.0),
                   ),
                   onPressed: () {
-                    Navigator.push(context, pushNewRoutes(MenuScreenRoute));
+                    _signIn(context);
                   },
                 ),
                 Divider(),
@@ -67,12 +69,16 @@ class _SignInScreenState extends State<SignInScreen> {
                     borderRadius: BorderRadius.circular(28.0),
                   ),
                   onPressed: () {
-                    Navigator.push(context, pushNewRoutes(MenuScreenRoute));
+                    _signIn(context);
                   },
                 ),
               ],
             ),
           )),
     );
+  }
+
+  void _signIn(BuildContext context) {
+    Navigator.push(context, pushNewRoutes(MenuScreenRoute));
   }
 }

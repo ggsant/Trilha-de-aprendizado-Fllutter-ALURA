@@ -5,12 +5,14 @@ class Editor extends StatelessWidget {
   final String rotulo;
   final String dica;
   final IconData icone;
+  final TextInputType keyboardType;
 
   Editor({
     this.controlador,
     this.rotulo,
     this.dica,
     this.icone,
+    this.keyboardType,
   });
 
   @override
@@ -25,7 +27,7 @@ class Editor extends StatelessWidget {
           labelText: rotulo,
           hintText: dica,
         ),
-        keyboardType: TextInputType.number,
+        keyboardType: keyboardType,
       ),
     );
   }

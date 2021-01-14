@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bank/resources/routes.dart';
+import 'package:flutter_bank/resources/theme_colors.dart';
 
 import 'cards/pageTwo.dart';
 import 'notifications/pageOne.dart';
@@ -49,7 +50,7 @@ class _MenuScreenState extends State<MenuScreen>
   void initState() {
     super.initState();
     final systemTheme = SystemUiOverlayStyle.light.copyWith(
-      systemNavigationBarColor: HexColor('#373A36'),
+      systemNavigationBarColor: ThemeColors.indigo800Color,
       systemNavigationBarIconBrightness: Brightness.light,
     );
     SystemChrome.setSystemUIOverlayStyle(systemTheme);
@@ -84,13 +85,10 @@ class _MenuScreenState extends State<MenuScreen>
       appBar: AppBar(
         title: Text(
           widget.title,
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: ThemeColors.whiteColor),
         ),
         centerTitle: true,
-        backgroundColor: HexColor('#536DFE'),
-        iconTheme: IconThemeData(
-          color: Color.fromRGBO(83, 109, 254, 1),
-        ),
+        backgroundColor: ThemeColors.primaryColor,
       ),
       body: NavigationScreen(widgetList[_bottomNavIndex]),
       floatingActionButton: ScaleTransition(
@@ -98,7 +96,7 @@ class _MenuScreenState extends State<MenuScreen>
         child: FloatingActionButton(
           heroTag: "btn2",
           elevation: 8,
-          backgroundColor: HexColor('#536DFE'),
+          backgroundColor: ThemeColors.primaryColor,
           child: Icon(
             Icons.home,
             color: Colors.white,
@@ -114,7 +112,7 @@ class _MenuScreenState extends State<MenuScreen>
       bottomNavigationBar: AnimatedBottomNavigationBar.builder(
         itemCount: iconList.length,
         tabBuilder: (int index, bool isActive) {
-          final color = isActive ? Colors.indigo[800] : Colors.white;
+          final color = isActive ? ThemeColors.indigo800Color : Colors.white;
           return Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -128,9 +126,9 @@ class _MenuScreenState extends State<MenuScreen>
             ],
           );
         },
-        backgroundColor: HexColor('#536DFE'),
+        backgroundColor: ThemeColors.primaryColor,
         activeIndex: _bottomNavIndex,
-        splashColor: HexColor('#536DFE'),
+        splashColor: ThemeColors.primaryColor,
         notchAndCornersAnimation: animation,
         splashSpeedInMilliseconds: 300,
         notchSmoothness: NotchSmoothness.defaultEdge,
@@ -212,17 +210,5 @@ class _NavigationScreenState extends State<NavigationScreen>
         ),
       ),
     );
-  }
-}
-
-class HexColor extends Color {
-  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
-
-  static int _getColorFromHex(String hexColor) {
-    hexColor = hexColor.toUpperCase().replaceAll('#', '');
-    if (hexColor.length == 6) {
-      hexColor = 'FF' + hexColor;
-    }
-    return int.parse(hexColor, radix: 16);
   }
 }

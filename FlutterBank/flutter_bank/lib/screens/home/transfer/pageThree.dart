@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bank/components/buttonsDashboard.dart';
 import 'package:flutter_bank/components/saldoCard.dart';
 import 'package:flutter_bank/components/title.dart';
+import 'package:flutter_bank/database/dao/saldo_dao.dart';
 import 'package:flutter_bank/database/dao/transferencia_dao.dart';
 import 'package:flutter_bank/model/transferencia.dart';
+import 'package:flutter_bank/resources/strings.dart';
 import 'package:flutter_bank/screens/home/notifications/listaMovimentacoes.dart';
 import 'package:flutter_bank/screens/home/transfer/ultimasTransferencias.dart';
 
@@ -18,14 +20,15 @@ class PageThreeMenu extends StatefulWidget {
 class _PageThreeMenuState extends State<PageThreeMenu> {
   @override
   Widget build(BuildContext context) {
-    final TransfDao _dao = TransfDao();
+    final TransfDao _daoTransf = TransfDao();
 
     return SafeArea(
       child: Scaffold(
         body: FutureBuilder<List<Transferencia>>(
           initialData: List(),
-          future: Future.delayed(Duration(seconds: 1))
-              .then((value) => _dao.findAll()),
+          future: Future.delayed(Duration(seconds: 1)).then((value) {
+            return _daoTransf.findAll();
+          }),
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.none:
@@ -55,21 +58,15 @@ class _PageThreeMenuState extends State<PageThreeMenu> {
                         alignment: MainAxisAlignment.center,
                         children: [
                           ButtonDashboard(
-                            text: 'Receber depósito',
+                            text: Strings.receiveDeposit,
                             onPressed: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return FormularioDeposito();
-                              }));
+                              _receiveDeposit(context);
                             },
                           ),
                           ButtonDashboard(
-                            text: 'Fazer transferência',
+                            text: Strings.transfer,
                             onPressed: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return FormsTransferencia(); //
-                              }));
+                              _transfer(context);
                             },
                           ),
                         ],
@@ -77,12 +74,9 @@ class _PageThreeMenuState extends State<PageThreeMenu> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 15.0),
                         child: ButtonDashboard(
-                          text: 'Extrato bancário',
+                          text: Strings.bankStatement,
                           onPressed: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return ListaMovimentacoes(); //
-                            }));
+                            _viewAllTransfers(context);
                           },
                         ),
                       ),
@@ -92,34 +86,35 @@ class _PageThreeMenuState extends State<PageThreeMenu> {
                 } else {
                   return Center(
                     child: TitleFont(
-                      text: 'Faça uma nova transferência!',
+                      text: Strings.makeNewTransfer,
                       fontSize: 30,
                     ),
                   );
                 }
                 break;
             }
-            return Text('Error');
+            return Text(Strings.error);
           },
         ),
       ),
     );
   }
-}
 
-// floatingActionButton: FloatingActionButton(
-//   backgroundColor: Color.fromRGBO(83, 109, 254, 1),
-//   heroTag: "btn1",
-//   child: Icon(Icons.add),
-//   onPressed: () {
-//     Navigator.of(context)
-//         .push(MaterialPageRoute(
-//       builder: (context) => FormsTransferencia(),
-//     ))
-//         .then((value) {
-//       setState(() {
-//         widget.createState();
-//       });
-//     });
-//   },
-// ),
+  void _viewAllTransfers(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return ListaMovimentacoes(); //
+    }));
+  }
+
+  void _transfer(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return FormsTransferencia(); //
+    }));
+  }
+
+  void _receiveDeposit(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return FormularioDeposito();
+    }));
+  }
+}

@@ -11,6 +11,8 @@ import 'package:provider/provider.dart';
 
 const _rotuloCampoValor = 'Valor';
 const _dicaCampoValor = '0.00';
+const _rotuloCampoNome = 'Nome';
+const _dicaCampoNome = 'Digite seu nome';
 
 const _rotuloCampoNumeroConta = 'Número da conta';
 const _dicaCampoNumeroConta = '0000';
@@ -26,6 +28,7 @@ class _FormsTransferenciaState extends State<FormsTransferencia> {
   final TextEditingController _controladorCampoNumeroConta =
       TextEditingController();
   final TextEditingController _controladorCampoValor = TextEditingController();
+  final TextEditingController _controladorCampoNome = TextEditingController();
 
   final TransfDao _dao = TransfDao();
 
@@ -52,15 +55,23 @@ class _FormsTransferenciaState extends State<FormsTransferencia> {
                 child: Column(
                   children: <Widget>[
                     Editor(
+                      controlador: _controladorCampoNome,
+                      dica: _dicaCampoNome,
+                      rotulo: _rotuloCampoNome,
+                      keyboardType: TextInputType.text,
+                    ),
+                    Editor(
                       controlador: _controladorCampoNumeroConta,
                       dica: _dicaCampoNumeroConta,
                       rotulo: _rotuloCampoNumeroConta,
+                      keyboardType: TextInputType.number,
                     ),
                     Editor(
                       dica: _dicaCampoValor,
                       controlador: _controladorCampoValor,
                       rotulo: _rotuloCampoValor,
                       icone: Icons.monetization_on,
+                      keyboardType: TextInputType.number,
                     ),
                     ButtonDashboard(
                       text: _textoBotaoConfirmar,
@@ -79,18 +90,21 @@ class _FormsTransferenciaState extends State<FormsTransferencia> {
   void _criaTransferencia(BuildContext context) {
     final int numeroConta = int.tryParse(_controladorCampoNumeroConta.text);
     final double valor = double.tryParse(_controladorCampoValor.text);
+    final String nome = _controladorCampoNome.text;
+
     final transferenciaValida =
-        _validaTransferencia(context, numeroConta, valor);
+        _validaTransferencia(context, numeroConta, valor, nome);
 
     if (transferenciaValida) {
-      final novaTransferencia = Transferencia(valor, numeroConta);
+      final novaTransferencia = Transferencia(valor, numeroConta, nome);
       _atualizaEstado(context, novaTransferencia, valor);
       _dao.save(novaTransferencia).then((id) => Navigator.pop(context));
     }
   }
 
-  _validaTransferencia(context, numeroConta, valor) {
-    final _camposPreenchidos = numeroConta != null && valor != null;
+  _validaTransferencia(context, numeroConta, valor, nome) {
+    final _camposPreenchidos =
+        numeroConta != null && valor != null && nome != null;
     final _saldoSuficiente =
         valor <= Provider.of<Saldo>(context, listen: false).valor;
 

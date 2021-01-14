@@ -1,23 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bank/screens/sign_in.dart';
 import 'package:provider/provider.dart';
 
 import 'model/saldo.dart';
 import 'model/transferencias.dart';
+import 'resources/strings.dart';
+import 'resources/theme_colors.dart';
 
-void main() => runApp(
-      MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => Saldo(0),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => Transferencias(),
-          )
-        ],
-        child: FlutterBank(),
-      ),
-    );
+void main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor: ThemeColors.indigo800Color,
+    statusBarColor: ThemeColors.indigo800Color,
+  ));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => Saldo(0),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => Transferencias(),
+        )
+      ],
+      child: FlutterBank(),
+    ),
+  );
+}
 
 class FlutterBank extends StatelessWidget {
   const FlutterBank({Key key}) : super(key: key);
@@ -33,8 +42,7 @@ class FlutterBank extends StatelessWidget {
         );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'FlutterBank',
-      color: Color.fromRGBO(231, 72, 154, 1),
+      title: Strings.title,
       home: SignInScreen(),
     );
   }

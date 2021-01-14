@@ -7,13 +7,14 @@ class TransfDao {
   static const String tableSql = 'CREATE TABLE $_tableName('
       '$_id INTEGER PRIMARY KEY, '
       '$_cpfNumber INTEGER, '
-      '$_accountNumber INTEGER, $_value DOUBLE)';
+      '$_accountNumber INTEGER, $_value DOUBLE, $_nome TEXT )';
 
   static const String _id = 'id';
   static const String _value = 'value';
   static const String _tableName = 'transferencias';
   static const String _cpfNumber = 'cpf_number';
   static const String _accountNumber = 'account_number';
+  static const String _nome = 'nome';
 
   Future<int> save(Transferencia transf) async {
     final Database db = await getDatabase();
@@ -25,6 +26,7 @@ class TransfDao {
     final Map<String, dynamic> transfMap = Map();
     transfMap[_value] = transf.valor;
     transfMap[_accountNumber] = transf.numeroConta;
+    transfMap[_nome] = transf.nome;
 
     return transfMap;
   }
@@ -40,9 +42,9 @@ class TransfDao {
     final List<Transferencia> transfs = List();
     for (Map<String, dynamic> row in result) {
       final Transferencia transf = Transferencia(
-        // row[_id],
         row[_value],
         row[_accountNumber],
+        row[_nome],
       );
       transfs.add(transf);
     }
