@@ -88,7 +88,7 @@ class _MenuScreenState extends State<MenuScreen>
           style: TextStyle(color: ThemeColors.whiteColor),
         ),
         centerTitle: true,
-        backgroundColor: ThemeColors.primaryColor,
+        backgroundColor: ThemeColors.indigo800Color,
       ),
       body: NavigationScreen(widgetList[_bottomNavIndex]),
       floatingActionButton: ScaleTransition(
@@ -96,7 +96,7 @@ class _MenuScreenState extends State<MenuScreen>
         child: FloatingActionButton(
           heroTag: "btn2",
           elevation: 8,
-          backgroundColor: ThemeColors.primaryColor,
+          backgroundColor: ThemeColors.indigo800Color,
           child: Icon(
             Icons.home,
             color: Colors.white,
@@ -112,7 +112,7 @@ class _MenuScreenState extends State<MenuScreen>
       bottomNavigationBar: AnimatedBottomNavigationBar.builder(
         itemCount: iconList.length,
         tabBuilder: (int index, bool isActive) {
-          final color = isActive ? ThemeColors.indigo800Color : Colors.white;
+          final color = isActive ? Colors.blue[100] : Colors.white;
           return Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -126,9 +126,9 @@ class _MenuScreenState extends State<MenuScreen>
             ],
           );
         },
-        backgroundColor: ThemeColors.primaryColor,
+        backgroundColor: ThemeColors.indigo800Color,
         activeIndex: _bottomNavIndex,
-        splashColor: ThemeColors.primaryColor,
+        splashColor: ThemeColors.indigo800Color,
         notchAndCornersAnimation: animation,
         splashSpeedInMilliseconds: 300,
         notchSmoothness: NotchSmoothness.defaultEdge,

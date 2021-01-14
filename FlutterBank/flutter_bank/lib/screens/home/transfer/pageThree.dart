@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bank/components/buttonsDashboard.dart';
 import 'package:flutter_bank/components/saldoCard.dart';
 import 'package:flutter_bank/components/title.dart';
-import 'package:flutter_bank/database/dao/saldo_dao.dart';
 import 'package:flutter_bank/database/dao/transferencia_dao.dart';
 import 'package:flutter_bank/model/transferencia.dart';
 import 'package:flutter_bank/resources/strings.dart';
-import 'package:flutter_bank/screens/home/notifications/listaMovimentacoes.dart';
 import 'package:flutter_bank/screens/home/transfer/ultimasTransferencias.dart';
 
 import 'formularioDeposito.dart';
@@ -71,15 +69,6 @@ class _PageThreeMenuState extends State<PageThreeMenu> {
                           ),
                         ],
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 15.0),
-                        child: ButtonDashboard(
-                          text: Strings.bankStatement,
-                          onPressed: () {
-                            _viewAllTransfers(context);
-                          },
-                        ),
-                      ),
                       UltimasTransferencias()
                     ],
                   );
@@ -98,12 +87,6 @@ class _PageThreeMenuState extends State<PageThreeMenu> {
         ),
       ),
     );
-  }
-
-  void _viewAllTransfers(BuildContext context) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return ListaMovimentacoes(); //
-    }));
   }
 
   void _transfer(BuildContext context) {
