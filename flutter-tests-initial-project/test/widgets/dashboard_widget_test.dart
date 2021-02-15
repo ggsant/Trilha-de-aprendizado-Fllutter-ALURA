@@ -11,7 +11,10 @@ void main() {
   testWidgets(
       'Deve apresentar a imagem principal quando o dashboard esta aberto',
       (WidgetTester tester) async {
-    await tester.pumpWidget(MaterialApp(home: Dashboard()));
+    await tester.pumpWidget(MaterialApp(
+        home: Dashboard(
+      contactDao: null,
+    )));
     final mainImage = find.byType(Image);
     expect(mainImage, findsOneWidget);
   });
@@ -19,7 +22,10 @@ void main() {
   testWidgets(
       'Deve apresentar a primeira funcionalidade quando o dashboard esta aberto',
       (tester) async {
-    await tester.pumpWidget(MaterialApp(home: Dashboard()));
+    await tester.pumpWidget(MaterialApp(
+        home: Dashboard(
+      contactDao: null,
+    )));
     final firstFeature = find.byType(FeatureItem);
     expect(firstFeature, findsWidgets);
   });
@@ -27,7 +33,10 @@ void main() {
   testWidgets(
       'Deve apresentar a funcionalidade de transferencia quando o dashboard esta aberto',
       (tester) async {
-    await tester.pumpWidget(MaterialApp(home: Dashboard()));
+    await tester.pumpWidget(MaterialApp(
+        home: Dashboard(
+      contactDao: null,
+    )));
     // final iconTransferFeatureItem =
     //     find.widgetWithIcon(FeatureItem, Icons.monetization_on);
     // expect(iconTransferFeatureItem, findsOneWidget);
@@ -42,6 +51,7 @@ void main() {
   testWidgets(
       'Should display the transaction feed feature when the Dashboard is opened',
       (tester) async {
+    // ignore: missing_required_param
     await tester.pumpWidget(MaterialApp(home: Dashboard()));
     final transferfeedFeatureItem = find.byWidgetPredicate((widget) =>
         featureItemMatcher(widget, 'Transaction Feed', Icons.description));
